@@ -1,0 +1,27 @@
+const INTERVAL = {
+  P1:  { pitch:  0, symbol:   '1', },
+  m2:  { pitch:  1, symbol:  'b2', },
+  M2:  { pitch:  2, symbol:   '2', },
+  m3:  { pitch:  3, symbol:  'b3', },
+  M3:  { pitch:  4, symbol:   '3', },
+  P4:  { pitch:  5, symbol:   '4', },
+  A4:  { pitch:  6, symbol:  '#4', },
+  d5:  { pitch:  6, symbol:  'b5', },
+  P5:  { pitch:  7, symbol:   '5', },
+  A5:  { pitch:  8, symbol:  '#5', },
+  m6:  { pitch:  8, symbol:  'b6', },
+  M6:  { pitch:  9, symbol:   '6', },
+  d7:  { pitch:  9, symbol: 'bb7', },
+  m7:  { pitch: 10, symbol:  'b7', },
+  M7:  { pitch: 11, symbol:   '7', },
+  P8:  { pitch:  0, symbol:   '8', },
+  m9:  { pitch:  1, symbol:  'b9', },
+  M9:  { pitch:  2, symbol:   '9', },
+  A9:  { pitch:  3, symbol:  '#9', },
+  P11: { pitch:  5, symbol:  '11', },
+  A11: { pitch:  6, symbol: '#11', },
+  m13: { pitch:  8, symbol: 'b13', },
+  M13: { pitch:  9, symbol:  '13', },
+};
+
+export default INTERVAL;
