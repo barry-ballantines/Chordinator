@@ -23,3 +23,19 @@ Here we go: F 1 b3 b5 bb7
 #### You need the Lydian b7 scale in Bb?
 
 Here is the code: Bb 1 2 3 #4 5 6 b7
+
+
+## How to build
+
+You need Node and PNPM to build this application.
+
+    pnpm install
+    
+    PUBLIC_URL=. pnpm run build
+    
+You can also start the application from the workspace with the following command:
+
+    pnpm start
+    
+The app is running at http://localhost:3030
+

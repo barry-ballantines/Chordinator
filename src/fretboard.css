@@ -44,7 +44,7 @@ input {
   background: #ddd;
 }
 
-.game {
+.chordinator-app {
   display: flex;
   flex-direction: row;
 }
