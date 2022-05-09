@@ -29,7 +29,7 @@ const Tones = {
   G:       tone("G",   3, "G"),
   G_SHARP: tone("G#",  4, "G", "#"),
 
-  A_FLAT:  tone("Ab",  5, "A", "b"),
+  A_FLAT:  tone("Ab",  4, "A", "b"),
   A:       tone("A",   5, "A"),
   A_SHARP: tone("A#",  6, "A", "#", true),
 
