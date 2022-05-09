@@ -1,8 +1,12 @@
 # Chordinator
 
-The amazing Chordinator is a React app that will replace all your chord charts in future.
+The `Amazing Chordinator´ is a React app that will replace all your chord charts in future.
 Just type in your root note and the scale degrees you want to add, and the tool will show
 you all the matching fretboard positions.
+
+Check out the latest build at:
+
+[Chordinator @ Github.io](https://barry-ballantines.github.io/Chordinator/build/index.html)
 
 ## Examples:
 
