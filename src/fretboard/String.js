@@ -7,7 +7,7 @@ class String extends React.Component {
 
   /**
    * props:
-   * - offset : int
+   * - tune : Tone
    * - analyzer : (pitch:int) => { pitch:int, symbol:string }
    * @param props
    */
@@ -15,10 +15,13 @@ class String extends React.Component {
   render() {
     const pitches = [];
     for (let i=0; i < NUMBER_OF_FRETS; i++) {
-      pitches.push( this.props.offset + i);
+      pitches.push( this.props.tune.pitch + i);
     }
     return (
       <div className='string'>
+        <div className='fret-tune'>
+          {this.props.tune.symbol}
+        </div>
         {pitches.map((pitch, index) =>
           <Fret pitch={pitch} analyzer={this.props.analyzer}/>
         )}

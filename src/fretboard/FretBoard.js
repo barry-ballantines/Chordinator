@@ -20,14 +20,47 @@ class FretBoard extends React.Component {
     super(props);
     this.state = {
       rootNote: undefined,
-      intervals: []
+      intervals: [],
+      tuning: [ Tones.E, Tones.A, Tones.D, Tones.G, Tones.B, Tones.E ],
     };
+  }
+
+  updateState(props) {
+    if (!props) return;
+    let oldState = this.state;
+    let newState = {}
+
+    newState.rootNote = (!props.rootNote) ? oldState.rootNote : props.rootNote;
+    newState.intervals = (!props.intervals) ? oldState.intervals : props.intervals;
+    newState.tuning = (!props.tuning) ? oldState.tuning : props.tuning;
+
+    this.setState(newState);
+
+  }
+
+  changeTuning(value) {
+    if (!value) return;
+    let values = value.split(" ");
+    if (values.length !== 6) return;
+
+    let tuning = [];
+    values.forEach(
+      (symbol) => {
+        let tone = DIATONIC.find((item) => item.symbol === symbol );
+        if (tone) {
+          tuning.push(tone);
+        }
+      }
+    );
+    if (tuning.length===6) {
+      this.updateState({ tuning: tuning });
+    }
   }
 
   changeTones(value) {
     if (!value) return;
     let values = value.split(" ");
-    if (values.length == null) return;
+    if (values.length === 0) return;
     // root note
     const tone = DIATONIC.find(tone => tone.symbol === values[0]);
     if (!tone) return;
@@ -47,7 +80,7 @@ class FretBoard extends React.Component {
       rootNote: tone,
       intervals: intervals,
     };
-    this.setState(newState);
+    this.updateState(newState);
   }
 
   findIntervalForPitch(pitch) {
@@ -57,19 +90,26 @@ class FretBoard extends React.Component {
   }
 
   render() {
+    const tuning = this.state.tuning;
     return (
       <div className="chordinator-app">
         <div className="chordinator-panel">
           <h2>Fretboard</h2>
-          <String offset={24} analyzer={(pitch) => this.findIntervalForPitch(pitch)}/>
-          <String offset={19} analyzer={(pitch) => this.findIntervalForPitch(pitch)}/>
-          <String offset={15} analyzer={(pitch) => this.findIntervalForPitch(pitch)}/>
-          <String offset={10} analyzer={(pitch) => this.findIntervalForPitch(pitch)}/>
-          <String offset={5} analyzer={(pitch) => this.findIntervalForPitch(pitch)}/>
-          <String offset={0} analyzer={(pitch) => this.findIntervalForPitch(pitch)}/>
+          <String tune={tuning[5]} analyzer={(pitch) => this.findIntervalForPitch(pitch)}/>
+          <String tune={tuning[4]} analyzer={(pitch) => this.findIntervalForPitch(pitch)}/>
+          <String tune={tuning[3]} analyzer={(pitch) => this.findIntervalForPitch(pitch)}/>
+          <String tune={tuning[2]} analyzer={(pitch) => this.findIntervalForPitch(pitch)}/>
+          <String tune={tuning[1]} analyzer={(pitch) => this.findIntervalForPitch(pitch)}/>
+          <String tune={tuning[0]} analyzer={(pitch) => this.findIntervalForPitch(pitch)}/>
           <h2>Notes</h2>
           <div>
             <input type="text" size={30} onChange={(e) => this.changeTones(e.target.value)}></input>
+          </div>
+          <h2>Tuning</h2>
+          <div>
+            <input type="text"
+                   size={30}
+                   onChange={(e) => this.changeTuning(e.target.value)}></input>
           </div>
         </div>
       </div>
